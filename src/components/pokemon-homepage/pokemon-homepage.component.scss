@@ -3,7 +3,7 @@
     url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
 
   .grid-layout {
-    padding: 100px 0;
+    padding: 50px 0;
     display: grid;
     max-width: 100%;
     grid-gap: 80px;
@@ -17,6 +17,20 @@
       max-width: 400px;
       color: white;
       background-color: rgb(35, 35, 35);
+      display: inline-block;
+
+      &:hover {
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        -webkit-animation-duration: 0.3s;
+        animation-duration: 0.3s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+
+        .mat-card-image {
+          transform: scale(1.1);
+        }
+      }
 
       .mat-card-title {
         display: inline-flex;
@@ -28,10 +42,6 @@
 
         .mat-card-image {
           margin-bottom: 0px;
-
-          &:hover {
-            transform: scale(1.1);
-          }
         }
       }
 
@@ -65,3 +75,5 @@
     }
   }
 }
+
+
