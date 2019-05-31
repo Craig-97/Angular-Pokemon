@@ -4,14 +4,17 @@ export class Results {
     name: string;
     url: string;
     details: PokemonDetails;
+    description: string;
 
     constructor(
         name: string,
         url: string,
-        details?: PokemonDetails
+        details?: PokemonDetails,
+        description?: any
     ) { this.name = name;
         this.url = url;
-        this.details = details; }
+        this.details = details;
+        this.description = description; }
 }
 
 export class PokeAPI {

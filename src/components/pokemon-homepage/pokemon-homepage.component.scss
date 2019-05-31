@@ -3,13 +3,13 @@
     url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
 
   .grid-layout {
-    padding-top: 100px;
+    padding: 100px 0;
     display: grid;
     max-width: 100%;
     grid-gap: 80px;
     margin: 0 auto;
     width: 95%;
-    grid-auto-rows: 350px;
+    grid-auto-rows: 300px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
     .pokemon-card {
@@ -47,9 +47,18 @@
         
         .types{
           display: inline-flex;
-          margin: 5px;
-          padding: 5px;
-          background: green;
+          margin: 15px 10px 5px 0px;
+          padding: 5px 10px;
+          text-shadow: black 1px 1px 1px;
+          border-radius: 10px;
+          font-size: 15px;
+        }
+
+        .abilities{
+          display: inline-flex;
+          padding: 5px 10px;
+          border-radius: 10px;
+          font-size: 15px;
         }
       }
 

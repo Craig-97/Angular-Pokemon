@@ -11,9 +11,11 @@ import { PokeAPI } from './../classes/pokemons';
 })
 export class PokemonService {
   pokeAPI: any;
+  pokeSpeciesAPI: any;
 
   constructor(private http: HttpClient) {
     this.pokeAPI = environment.pokemonURL;
+    this.pokeSpeciesAPI = environment.pokemonSpeciesURL;
   }
 
   // Returns original 151 pokemon
@@ -27,6 +29,13 @@ export class PokemonService {
   getPokemonDetails(name): Observable<PokemonDetails> {
     return this.http
       .get<PokemonDetails>(`${this.pokeAPI}/${name}`)
+      .pipe(catchError(this._handleError));
+  }
+
+  // uses pokemon name to retrieve individual pokemon species details
+  getPokemonSpecies(name): Observable<any> {
+    return this.http
+      .get<any>(`${this.pokeSpeciesAPI}/${name}`)
       .pipe(catchError(this._handleError));
   }
 

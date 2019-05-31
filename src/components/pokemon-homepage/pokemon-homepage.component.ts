@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TYPE_COLOURS } from 'src/classes/interfaces';
 import { PokeAPI } from 'src/classes/pokemons';
 import { PokemonService } from 'src/services/pokemon.service';
 import { PokemonDetails } from './../../classes/pokemon-details';
@@ -32,5 +33,31 @@ export class PokemonHomepageComponent implements OnInit {
         });
       }
     });
+  }
+
+  // WILL BE ADDED TO DIALOG TO GET FURTHER INFO
+  getPokemonSpeciesDetails(pokemon) {
+    this.pokemonService
+    .getPokemonSpecies(pokemon.name)
+    .subscribe((species: any) => {
+      const entries = species.flavor_text_entries;
+      if (entries) {
+        entries.some(flavor => {
+          if (flavor.language.name === 'en') {
+            pokemon.description = flavor.flavor_text;
+          }
+        });
+      }
+    });
+  }
+
+  /**
+   * returns colour based on type mapped
+   * in TYPE_COLOURS interface
+   */
+  _getTypeColour(type: string): string {
+    if (type) {
+      return '#' + TYPE_COLOURS[type];
+    }
   }
 }
