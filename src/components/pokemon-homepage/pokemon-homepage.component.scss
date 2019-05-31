@@ -19,7 +19,7 @@
       background-color: rgb(35, 35, 35);
 
       .mat-card-title {
-        display: inline-block;
+        display: inline-flex;
       }
 
       .background-image {
@@ -39,8 +39,20 @@
         font-size: 26px;
         margin-left: 20px;
         text-align: right;
-        display: inline-block;
+        display: inline-flex;
       }
+
+      .mat-card-content {
+        margin: 0;
+        
+        .types{
+          display: inline-flex;
+          margin: 5px;
+          padding: 5px;
+          background: green;
+        }
+      }
+
     }
   }
 }
