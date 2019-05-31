@@ -1,0 +1,20 @@
+<div class="background" style="text-align:center">
+    <div class="grid-layout" *ngIf="pokemons">
+        <div *ngFor="let pokemon of pokemons.results let i = index" [attr.data-index]="i">
+
+            <mat-card class="pokemon-card">
+
+                  <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+                  <div class="id">{{ i + 1 }}</div>
+                <div class=background-image>
+                <img mat-card-image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{i + 1}}.png" alt="photo of {{ pokemon.name }}">
+                </div>
+                 <!-- <mat-card-content> </mat-card-content> -->  
+
+                <mat-card-actions>
+                  <button mat-button>VIEW DETAILS</button>
+                </mat-card-actions>
+
+              </mat-card>
+        </div>
+</div>

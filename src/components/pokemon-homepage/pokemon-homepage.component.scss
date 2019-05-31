@@ -1,0 +1,46 @@
+.background {
+  background: #fff
+    url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+
+  .grid-layout {
+    padding-top: 100px;
+    display: grid;
+    max-width: 100%;
+    grid-gap: 80px;
+    margin: 0 auto;
+    width: 95%;
+    grid-auto-rows: 350px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    .pokemon-card {
+      min-width: 200px;
+      max-width: 400px;
+      color: white;
+      background-color: rgb(35, 35, 35);
+
+      .mat-card-title {
+        display: inline-block;
+      }
+
+      .background-image {
+        background-color: #616161;
+        border-radius: 10px;
+
+        .mat-card-image {
+          margin-bottom: 0px;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .id {
+        font-size: 26px;
+        margin-left: 20px;
+        text-align: right;
+        display: inline-block;
+      }
+    }
+  }
+}
