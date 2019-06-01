@@ -11,5 +11,17 @@
         height: 50px;
         width: 150px;
     }
+
+    .search-input {
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 50px;
+        padding: 10px;
+        width: 300px;
+        border-radius: 50px;
+        border: none;
+        outline: none !important;
+        margin-right: -40px;
+    }
 }
 

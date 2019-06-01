@@ -1,4 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
   <img class="pokemon-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png">
-  <input [(ngModel)]="search" (ngModelChange)=searchEvent() placeholder="Enter pokemons name or id">
+  <input matInput class="search-input" type="text"  [(ngModel)]="search" (ngModelChange)=searchEvent() placeholder="Enter Pokemon name or id...">
+    <button mat-button  *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="searchEvent('')">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
 </mat-toolbar>

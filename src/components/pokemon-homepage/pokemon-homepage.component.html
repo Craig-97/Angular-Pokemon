@@ -3,7 +3,7 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div class="background" style="text-align:center">
+<div style="text-align:center">
   <div class="grid-layout" *ngIf="pokemons && pokemons.results.length == 151">
     <div *ngFor="let pokemon of pokemons.results | search: query;">
       <mat-card class="pokemon-card" *ngIf="pokemon.details">

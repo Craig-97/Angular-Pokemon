@@ -11,7 +11,11 @@ export class PokemonHeaderComponent {
 
   constructor() { }
 
-  searchEvent() {
+  searchEvent(search) {
+    // check for cleared search
+    if (search === '') {
+      this.search = search;
+    }
     this.searchChange.emit(this.search);
   }
 }

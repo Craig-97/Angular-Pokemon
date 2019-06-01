@@ -1,79 +1,71 @@
-.background {
-  background: #fff
-    url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
+.grid-layout {
+  padding: 50px 0;
+  display: grid;
+  max-width: 100%;
+  grid-gap: 80px;
+  margin: 0 auto;
+  width: 95%;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
-  .grid-layout {
-    padding: 50px 0;
-    display: grid;
-    max-width: 100%;
-    grid-gap: 80px;
-    margin: 0 auto;
-    width: 95%;
-    grid-auto-rows: 300px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  .pokemon-card {
+    min-width: 200px;
+    max-width: 400px;
+    color: white;
+    background-color: rgb(35, 35, 35);
+    display: inline-block;
 
-    .pokemon-card {
-      min-width: 200px;
-      max-width: 400px;
-      color: white;
-      background-color: rgb(35, 35, 35);
-      display: inline-block;
+    &:hover {
+      -webkit-animation-name: pulse;
+      animation-name: pulse;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
 
-      &:hover {
-        -webkit-animation-name: pulse;
-        animation-name: pulse;
-        -webkit-animation-duration: 0.3s;
-        animation-duration: 0.3s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-
-        .mat-card-image {
-          transform: scale(1.1);
-        }
+      .mat-card-image {
+        transform: scale(1.1);
       }
+    }
 
-      .mat-card-title {
+    .mat-card-title {
+      display: inline-flex;
+    }
+
+    .background-image {
+      background-color: #616161;
+      border-radius: 10px;
+
+      .mat-card-image {
+        margin-bottom: 0px;
+      }
+    }
+
+    .id {
+      font-size: 26px;
+      margin-left: 20px;
+      text-align: right;
+      display: inline-flex;
+    }
+
+    .mat-card-content {
+      margin: 0;
+
+      .types {
         display: inline-flex;
-      }
-
-      .background-image {
-        background-color: #616161;
+        margin: 15px 10px 5px 0px;
+        padding: 5px 10px;
+        text-shadow: black 1px 1px 1px;
         border-radius: 10px;
-
-        .mat-card-image {
-          margin-bottom: 0px;
-        }
+        font-size: 15px;
       }
 
-      .id {
-        font-size: 26px;
-        margin-left: 20px;
-        text-align: right;
+      .abilities {
         display: inline-flex;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-size: 15px;
       }
-
-      .mat-card-content {
-        margin: 0;
-        
-        .types{
-          display: inline-flex;
-          margin: 15px 10px 5px 0px;
-          padding: 5px 10px;
-          text-shadow: black 1px 1px 1px;
-          border-radius: 10px;
-          font-size: 15px;
-        }
-
-        .abilities{
-          display: inline-flex;
-          padding: 5px 10px;
-          border-radius: 10px;
-          font-size: 15px;
-        }
-      }
-
     }
   }
 }
-
-

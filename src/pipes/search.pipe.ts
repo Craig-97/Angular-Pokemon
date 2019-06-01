@@ -13,12 +13,21 @@ export class SearchPipe implements PipeTransform {
     }
     searchText = searchText.toLowerCase();
 
-    // NEED TO MODIFY FILTER TO ONLY INCLUDE NAME AND ID
-
     return value.filter(item => {
-      return JSON.stringify(item)
-        .toLowerCase()
-        .includes(searchText);
+      let matchFound = false;
+
+      if (item.name && item.url) {
+        const name = item.name;
+        const index = item.url.split('/')[item.url.split('/').length - 2];
+
+        const searchName = JSON.stringify(name).toLowerCase().includes(searchText);
+        const searchId = JSON.stringify(index).toLowerCase().includes(searchText);
+
+        if (searchName || searchId) {
+          matchFound = true;
+        }
+      }
+      return matchFound;
     });
   }
 }

@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 body {
   margin: 0;
+  background: #fff url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png)
 }
 
 @-webkit-keyframes pulse {
