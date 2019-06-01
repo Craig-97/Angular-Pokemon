@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TYPE_COLOURS } from 'src/classes/interfaces';
 import { PokeAPI } from 'src/classes/pokemons';
 import { PokemonService } from 'src/services/pokemon.service';
@@ -11,6 +11,13 @@ import { PokemonDetails } from './../../classes/pokemon-details';
 })
 export class PokemonHomepageComponent implements OnInit {
   pokemons: PokeAPI;
+  query: string;
+
+  @Input() set search(newSearch: string) {
+    if (newSearch !== this.query) {
+      this.query = newSearch;
+    }
+  }
 
   constructor(private pokemonService: PokemonService) {}
 
@@ -25,6 +32,10 @@ export class PokemonHomepageComponent implements OnInit {
       if (this.pokemons.results && this.pokemons.results.length) {
         // get pokemon details for every pokemon
         this.pokemons.results.forEach(pokemon => {
+
+          // set pokemon id
+          pokemon.id = pokemon.url.split('/')[pokemon.url.split('/').length - 2];
+
           this.pokemonService
             .getPokemonDetails(pokemon.name)
             .subscribe((details: PokemonDetails) => {

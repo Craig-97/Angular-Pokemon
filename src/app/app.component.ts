@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-pokemon';
+  public search: string;
+
+  newPokemonSearch(search: string) {
+    if (this.search !== search) {
+      this.search = search;
+    }
+  }
 }

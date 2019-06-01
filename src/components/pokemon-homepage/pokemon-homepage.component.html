@@ -5,13 +5,10 @@
 
 <div class="background" style="text-align:center">
   <div class="grid-layout" *ngIf="pokemons && pokemons.results.length == 151">
-    <div
-      *ngFor="let pokemon of pokemons.results; let i = index"
-      [attr.data-index]="i"
-    >
+    <div *ngFor="let pokemon of pokemons.results | search: query;">
       <mat-card class="pokemon-card" *ngIf="pokemon.details">
         <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
-        <div class="id">{{ i + 1 }}</div>
+        <div class="id">{{ pokemon.id }}</div>
         <div class="background-image">
           <img
             mat-card-image
