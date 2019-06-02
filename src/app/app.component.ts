@@ -1,5 +1,5 @@
-import { PokeAPI, Results } from './../interfaces';
 import { Component } from '@angular/core';
+import { Results } from './../interfaces';
 
 @Component({
   selector: 'app-root',
