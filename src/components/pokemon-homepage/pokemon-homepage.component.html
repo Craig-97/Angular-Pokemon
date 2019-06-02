@@ -5,7 +5,8 @@
 
 <div style="text-align:center">
   <div class="grid-layout" *ngIf="pokemons && pokemons.results.length == 151">
-    <div *ngFor="let pokemon of pokemons.results | search: query;">
+    <div
+      *ngFor="let pokemon of pokemons.results | search: query | filter: filters">
       <mat-card class="pokemon-card" *ngIf="pokemon.details">
         <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
         <div class="id">{{ pokemon.id }}</div>
@@ -18,12 +19,14 @@
         </div>
         <mat-card-content>
           <div style="display: block;">
-          <div *ngFor="let type of pokemon.details.types"
+            <div
+              *ngFor="let type of pokemon.details.types"
               class="types"
-              [style.background]="_getTypeColour(type.type.name)">
-             {{ type.type.name | titlecase }}
+              [style.background]="_getTypeColour(type.type.name)"
+            >
+              {{ type.type.name | titlecase }}
+            </div>
           </div>
-        </div>
         </mat-card-content>
       </mat-card>
     </div>

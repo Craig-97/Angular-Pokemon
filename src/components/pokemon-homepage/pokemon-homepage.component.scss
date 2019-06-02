@@ -2,14 +2,14 @@
   padding: 50px 0;
   display: grid;
   max-width: 100%;
-  grid-gap: 80px;
+  grid-gap: 60px;
   margin: 0 auto;
   width: 95%;
   grid-auto-rows: 300px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   .pokemon-card {
-    min-width: 200px;
+    min-width: 180px;
     max-width: 400px;
     color: white;
     background-color: rgb(35, 35, 35);

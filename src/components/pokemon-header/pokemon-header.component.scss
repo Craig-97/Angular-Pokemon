@@ -1,27 +1,55 @@
 .mat-toolbar {
-    background-color: #ef5350;
-    box-shadow: 0 2px 2px rgba(0,0,0,.2);
-    position: sticky;
-    position: -webkit-sticky; /* For macOS/iOS Safari */
-    top: 0; /* Sets the sticky toolbar to be on top */
-    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  background-color: #ef5350;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 
-    .pokemon-logo {
-        margin-left: 50px;
-        height: 50px;
-        width: 150px;
-    }
+  .pokemon-logo {
+    margin-left: 50px;
+    height: 50px;
+    width: 150px;
+  }
 
+  .search-box {
+    margin-right: 10px;
     .search-input {
-        font-size: 16px;
-        font-weight: bold;
-        margin-left: 50px;
-        padding: 10px;
-        width: 300px;
-        border-radius: 50px;
-        border: none;
-        outline: none !important;
-        margin-right: -40px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-left: 50px;
+      padding: 5px;
+      width: 300px;
+      border-radius: 50px;
+      border: none;
+      outline: none !important;
+      background: white;
     }
+    .close-button {
+      margin-left: -40px;
+    }
+  }
+
+  .filter-component {
+    margin-left: 80px;
+    .filter {
+      margin-right: 10px;
+    }
+
+    .form-field {
+      width: 100px;
+      margin-top: 8px;
+    }
+  }
 }
 
+@media only screen and (max-width: 600px) {
+  .filter-component,
+  .pokemon-logo {
+    display: none;
+  }
+
+  .search-input {
+    width: 250px !important;
+  }
+}

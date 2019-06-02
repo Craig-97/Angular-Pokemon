@@ -1,3 +1,3 @@
-<app-pokemon-header (searchChange)="newPokemonSearch($event)" ></app-pokemon-header>
-<app-pokemon-homepage [search]="search"></app-pokemon-homepage>
+<app-pokemon-header (searchChange)="newPokemonSearch($event)" (typeSelected)="newTypeSelected($event)"></app-pokemon-header>
+<app-pokemon-homepage [search]="search" [filter]="filter"> </app-pokemon-homepage>
 <router-outlet></router-outlet>

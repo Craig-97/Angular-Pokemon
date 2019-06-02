@@ -1,7 +1,40 @@
 <mat-toolbar>
-  <img class="pokemon-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png">
-  <input matInput class="search-input" type="text"  [(ngModel)]="search" (ngModelChange)=searchEvent() placeholder="Enter Pokemon name or id...">
-    <button mat-button  *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="searchEvent('')">
-      <mat-icon class="close-icon">close</mat-icon>
+  <img
+    class="pokemon-logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png"
+  />
+
+  <div class="search-box">
+    <input
+      matInput
+      class="search-input"
+      type="text"
+      [(ngModel)]="search"
+      (ngModelChange)="searchEvent()"
+      placeholder="Enter Pokemon name or id..."
+    />
+    <button
+      mat-button
+      class="close-button"
+      *ngIf="search"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="searchEvent('')"
+    >
+      <mat-icon>close</mat-icon>
     </button>
+  </div>
+
+  <div class="filter-component">
+    <mat-label class="filter">Filter by Type</mat-label>
+    <mat-form-field class="form-field">
+      <mat-select [(ngModel)]="currentType" (ngModelChange)="onTypeSelected()">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{ type.type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </mat-toolbar>

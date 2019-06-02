@@ -7,10 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public search: string;
+  public filter: any;
 
-  newPokemonSearch(search: string) {
+  newPokemonSearch(search: string): void {
     if (this.search !== search) {
       this.search = search;
+    }
+  }
+
+  newTypeSelected(filter: string): void {
+    if (this.filter !== filter) {
+      this.filter = filter;
     }
   }
 }

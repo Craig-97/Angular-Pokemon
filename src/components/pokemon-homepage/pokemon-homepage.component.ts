@@ -12,10 +12,17 @@ import { PokemonDetails } from './../../classes/pokemon-details';
 export class PokemonHomepageComponent implements OnInit {
   pokemons: PokeAPI;
   query: string;
+  filters: any;
 
   @Input() set search(newSearch: string) {
     if (newSearch !== this.query) {
       this.query = newSearch;
+    }
+  }
+
+  @Input() set filter(newFilters: any) {
+    if (newFilters !== this.filters) {
+      this.filters = newFilters;
     }
   }
 
@@ -32,9 +39,10 @@ export class PokemonHomepageComponent implements OnInit {
       if (this.pokemons.results && this.pokemons.results.length) {
         // get pokemon details for every pokemon
         this.pokemons.results.forEach(pokemon => {
-
           // set pokemon id
-          pokemon.id = pokemon.url.split('/')[pokemon.url.split('/').length - 2];
+          pokemon.id = pokemon.url.split('/')[
+            pokemon.url.split('/').length - 2
+          ];
 
           this.pokemonService
             .getPokemonDetails(pokemon.name)
@@ -49,17 +57,17 @@ export class PokemonHomepageComponent implements OnInit {
   // WILL BE ADDED TO DIALOG TO GET FURTHER INFO
   getPokemonSpeciesDetails(pokemon) {
     this.pokemonService
-    .getPokemonSpecies(pokemon.name)
-    .subscribe((species: any) => {
-      const entries = species.flavor_text_entries;
-      if (entries) {
-        entries.some(flavor => {
-          if (flavor.language.name === 'en') {
-            pokemon.description = flavor.flavor_text;
-          }
-        });
-      }
-    });
+      .getPokemonSpecies(pokemon.name)
+      .subscribe((species: any) => {
+        const entries = species.flavor_text_entries;
+        if (entries) {
+          entries.some(flavor => {
+            if (flavor.language.name === 'en') {
+              pokemon.description = flavor.flavor_text;
+            }
+          });
+        }
+      });
   }
 
   /**
