@@ -33,12 +33,12 @@ export interface PokeAPI {
   results: Results[];
 }
 
-export class PokemonDetails {
+export interface PokemonDetails {
   name: string;
   id: number;
   sprites: Sprites;
 }
 
-export class Sprites {
+export interface Sprites {
   front_default: string;
 }
