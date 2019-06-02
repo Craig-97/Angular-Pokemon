@@ -36,6 +36,7 @@ export class PokemonHomepageComponent implements OnInit {
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
+    this.pokemonsLoaded = false;
     this.getPokemons();
   }
 
@@ -81,6 +82,10 @@ export class PokemonHomepageComponent implements OnInit {
 
   /**
    * Gets and sets a species details
+   * (currently only sets the description -
+   * would be used when card is clicked and either
+   * a new page/dialog with further information on
+   * a pokemon is shown)
    */
   getPokemonSpeciesDetails(pokemon: Results): void {
     this.pokemonService
