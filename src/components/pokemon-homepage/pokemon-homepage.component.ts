@@ -9,6 +9,7 @@ import { PokemonService } from 'src/services/pokemon.service';
 })
 export class PokemonHomepageComponent implements OnInit {
   @Output() exportPokemons = new EventEmitter();
+  pokemonsLoaded: boolean;
   pokemons: PokeAPI;
   query: string;
   abilityFilters: Array<string>;
@@ -72,6 +73,7 @@ export class PokemonHomepageComponent implements OnInit {
         // when last pokemon details have been loaded
         // send pokemons to header component
         if (pokemon.id === '151') {
+          this.pokemonsLoaded = true;
           this.exportPokemons.emit(this.pokemons.results);
         }
       });

@@ -1,10 +1,11 @@
-<!-- SHOW LOADING SYMBOL IF THERE ARE NO POKEMON OR ALL 151 HAVEN'T LOADED-->
-<div *ngIf="!pokemons || pokemons.results.length != 151">
+<!-- Show Loading symbol if there are no pokemon or all 151 haven't loaded-->
+<div class="loading" *ngIf="!pokemonsLoaded">
   <mat-spinner></mat-spinner>
+  LOADING POKEMON....
 </div>
 
 <div style="text-align:center">
-  <div class="grid-layout" *ngIf="pokemons && pokemons.results.length == 151">
+  <div class="grid-layout" *ngIf="pokemonsLoaded && pokemons">
     <div
       *ngFor="let pokemon of pokemons.results | search: query | typeFilter: typeFilters | abilitiesFilter: abilityFilters">
       <mat-card class="pokemon-card" *ngIf="pokemon.details">
