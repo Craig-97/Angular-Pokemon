@@ -22,9 +22,9 @@ export enum TYPE_COLOURS {
 export interface Results {
   name: string;
   url: string;
-  id: string;
-  details: PokemonDetails;
-  description: string;
+  id?: string;
+  details?: PokemonDetails;
+  description?: string;
 }
 
 export interface PokeAPI {
@@ -37,6 +37,8 @@ export interface PokemonDetails {
   name: string;
   id: number;
   sprites: Sprites;
+  abilities?: Array<any>;
+  types?: Array<any>;
 }
 
 export interface Sprites {

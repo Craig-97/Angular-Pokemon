@@ -1,3 +1,13 @@
-<app-pokemon-header (searchChange)="newPokemonSearch($event)" (typeSelected)="newTypeSelected($event)"></app-pokemon-header>
-<app-pokemon-homepage [search]="search" [filter]="filter"> </app-pokemon-homepage>
+<app-pokemon-header [pokemons]="pokemons"
+  (searchChange)="newPokemonSearch($event)"
+  (typeSelected)="newTypeSelected($event)"
+  (abilitiesSelected)="newAbilitiesSelected($event)">
+</app-pokemon-header>
+
+<app-pokemon-homepage (exportPokemons)="exportPokemons($event)"
+  [search]="search"
+  [typeFilter]="typeFilter"
+  [abilityFilter]="abilityFilter">
+</app-pokemon-homepage>
+
 <router-outlet></router-outlet>

@@ -37,14 +37,25 @@
     }
   }
 
+  .mat-select {
+    text-transform: capitalize;
+
+    .additional-selection {
+      text-transform: lowercase;
+      opacity: 0.75;
+      font-size: 0.75em;
+    }
+  }
+
+
   .filter-component {
     margin-left: 80px;
     .filter {
       margin-right: 10px;
     }
-
+    
     .form-field {
-      width: 100px;
+      width: auto;
       margin-top: 8px;
     }
   }

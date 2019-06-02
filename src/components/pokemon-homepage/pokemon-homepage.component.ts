@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TYPE_COLOURS, PokeAPI, PokemonDetails } from 'src/interfaces';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PokeAPI, PokemonDetails, Results, TYPE_COLOURS } from 'src/interfaces';
 import { PokemonService } from 'src/services/pokemon.service';
 
 @Component({
@@ -8,9 +8,11 @@ import { PokemonService } from 'src/services/pokemon.service';
   styleUrls: ['./pokemon-homepage.component.scss']
 })
 export class PokemonHomepageComponent implements OnInit {
+  @Output() exportPokemons = new EventEmitter();
   pokemons: PokeAPI;
   query: string;
-  filters: any;
+  abilityFilters: Array<string>;
+  typeFilters: string;
 
   @Input() set search(newSearch: string) {
     if (newSearch !== this.query) {
@@ -18,9 +20,15 @@ export class PokemonHomepageComponent implements OnInit {
     }
   }
 
-  @Input() set filter(newFilters: any) {
-    if (newFilters !== this.filters) {
-      this.filters = newFilters;
+  @Input() set typeFilter(type: string) {
+    if (type !== this.typeFilter) {
+      this.typeFilters = type;
+    }
+  }
+
+  @Input() set abilityFilter(abilities: Array<string>) {
+    if (abilities !== this.abilityFilters) {
+      this.abilityFilters = abilities;
     }
   }
 
@@ -30,6 +38,10 @@ export class PokemonHomepageComponent implements OnInit {
     this.getPokemons();
   }
 
+  /**
+   * Loads in all 151 Original pokemon and gets
+   * their details and species details
+   */
   getPokemons(): void {
     this.pokemonService.getPokemon().subscribe((data: PokeAPI) => {
       this.pokemons = data;
@@ -42,18 +54,33 @@ export class PokemonHomepageComponent implements OnInit {
             pokemon.url.split('/').length - 2
           ];
 
-          this.pokemonService
-            .getPokemonDetails(pokemon.name)
-            .subscribe((details: PokemonDetails) => {
-              pokemon.details = details;
-            });
+          this.getPokemonDetails(pokemon);
+          this.getPokemonSpeciesDetails(pokemon);
         });
       }
     });
   }
 
-  // WILL BE ADDED TO DIALOG TO GET FURTHER INFO
-  getPokemonSpeciesDetails(pokemon): void {
+  /**
+   * Gets and sets a pokemons details
+   */
+  getPokemonDetails(pokemon: Results): void {
+    this.pokemonService
+      .getPokemonDetails(pokemon.name)
+      .subscribe((details: PokemonDetails) => {
+        pokemon.details = details;
+        // when last pokemon details have been loaded
+        // send pokemons to header component
+        if (pokemon.id === '151') {
+          this.exportPokemons.emit(this.pokemons.results);
+        }
+      });
+  }
+
+  /**
+   * Gets and sets a species details
+   */
+  getPokemonSpeciesDetails(pokemon: Results): void {
     this.pokemonService
       .getPokemonSpecies(pokemon.name)
       .subscribe((species: any) => {

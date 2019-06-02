@@ -17,27 +17,36 @@ export class PokemonService {
     this.pokeSpeciesAPI = environment.pokemonSpeciesURL;
   }
 
-  // Returns original 151 pokemon
+  /**
+   * Returns original 151 pokemon
+   */
   getPokemon(): Observable<PokeAPI> {
     return this.http
       .get<PokeAPI>(`${this.pokeAPI}?limit=151`)
       .pipe(catchError(this._handleError));
   }
 
-  // uses pokemon name to retrieve individual pokemon details
+  /**
+   * Uses pokemon name to retrieve individual pokemon details
+   */
   getPokemonDetails(name): Observable<PokemonDetails> {
     return this.http
       .get<PokemonDetails>(`${this.pokeAPI}/${name}`)
       .pipe(catchError(this._handleError));
   }
 
-  // uses pokemon name to retrieve individual pokemon species details
+  /**
+   * Uses pokemon name to retrieve individual pokemon species details
+   */
   getPokemonSpecies(name): Observable<any> {
     return this.http
       .get<any>(`${this.pokeSpeciesAPI}/${name}`)
       .pipe(catchError(this._handleError));
   }
 
+  /**
+   * Handles any request error
+   */
   private _handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

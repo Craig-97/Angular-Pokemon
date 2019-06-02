@@ -32,7 +32,24 @@
       <mat-select [(ngModel)]="currentType" (ngModelChange)="onTypeSelected()">
         <mat-option>None</mat-option>
         <mat-option *ngFor="let type of types" [value]="type">
-          {{ type.type }}
+          {{ type | titlecase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="filter-component">
+    <mat-label class="filter">Filter by Abilities</mat-label>
+    <mat-form-field class="form-field">
+      <mat-select [(ngModel)]="currentAbilities" (ngModelChange)="onAbilitySelected()" multiple>
+          <mat-select-trigger>
+              {{currentAbilities ? currentAbilities[0]: ''}}
+              <span *ngIf="currentAbilities?.length > 1" class="additional-selection">
+                (+{{currentAbilities.length - 1}} {{currentAbilities?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+        <mat-option *ngFor="let ability of abilities" [value]="ability">
+          {{ ability | titlecase }}
         </mat-option>
       </mat-select>
     </mat-form-field>
