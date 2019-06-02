@@ -18,8 +18,8 @@
       font-size: 16px;
       font-weight: bold;
       margin-left: 50px;
-      padding: 5px;
-      width: 300px;
+      padding: 2px 5px 2px 20px;
+      width: 270px;
       border-radius: 50px;
       border: none;
       outline: none !important;
@@ -43,13 +43,21 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .filter-component,
+@media only screen and (max-width: 500px) {
+.mat-toolbar {
+  display: table;
+  padding: 20px;
+  text-align: center;
+  }
+
   .pokemon-logo {
     display: none;
   }
 
-  .search-input {
-    width: 250px !important;
+  .search-input,
+  .search-box,
+  .filter-component {
+    margin: 5px 0px !important;
   }
+
 }

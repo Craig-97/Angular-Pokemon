@@ -32,7 +32,7 @@ export class PokemonHomepageComponent implements OnInit {
     this.getPokemons();
   }
 
-  getPokemons() {
+  getPokemons(): void {
     this.pokemonService.getPokemon().subscribe((data: PokeAPI) => {
       this.pokemons = data;
 
@@ -55,7 +55,7 @@ export class PokemonHomepageComponent implements OnInit {
   }
 
   // WILL BE ADDED TO DIALOG TO GET FURTHER INFO
-  getPokemonSpeciesDetails(pokemon) {
+  getPokemonSpeciesDetails(pokemon): void {
     this.pokemonService
       .getPokemonSpecies(pokemon.name)
       .subscribe((species: any) => {

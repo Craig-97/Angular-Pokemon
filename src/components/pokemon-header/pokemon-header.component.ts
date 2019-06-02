@@ -12,12 +12,11 @@ export class PokemonHeaderComponent {
   currentType: any;
 
   types: Array<any> = [
-    { type: 'Bug' }, { type: 'Dark' }, { type: 'Dragon' },
-    { type: 'Electric' }, { type: 'Fairy' }, { type: 'Fighting' },
+    { type: 'Bug' }, { type: 'Dragon' }, { type: 'Electric' },
+    { type: 'Fairy' }, { type: 'Fighting' }, { type: 'Water' },
     { type: 'Fire' }, { type: 'Flying' }, { type: 'Ghost' },
     { type: 'Grass' }, { type: 'Ground' }, { type: 'Normal' },
     { type: 'Poison' }, { type: 'Psychic' }, { type: 'Steel' },
-    { type: 'Water' }
   ];
 
   constructor() {}
