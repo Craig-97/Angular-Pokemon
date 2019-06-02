@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TYPE_COLOURS } from 'src/classes/interfaces';
-import { PokeAPI } from 'src/classes/pokemons';
+import { TYPE_COLOURS, PokeAPI, PokemonDetails } from 'src/interfaces';
 import { PokemonService } from 'src/services/pokemon.service';
-import { PokemonDetails } from './../../classes/pokemon-details';
 
 @Component({
   selector: 'app-pokemon-homepage',

@@ -12,6 +12,13 @@
     width: 150px;
   }
 
+  .mat-icon-button,
+  .mat-icon {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+  }
+
   .search-box {
     margin-right: 10px;
     .search-input {
@@ -26,7 +33,7 @@
       background: white;
     }
     .close-button {
-      margin-left: -40px;
+      margin-left: -35px;
     }
   }
 

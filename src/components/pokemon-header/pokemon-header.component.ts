@@ -17,6 +17,7 @@ export class PokemonHeaderComponent {
     { type: 'Fire' }, { type: 'Flying' }, { type: 'Ghost' },
     { type: 'Grass' }, { type: 'Ground' }, { type: 'Normal' },
     { type: 'Poison' }, { type: 'Psychic' }, { type: 'Steel' },
+    { type: 'Rock' }, { type: 'Ice' },
   ];
 
   constructor() {}
