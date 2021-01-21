@@ -73,7 +73,7 @@ export class PokemonHomepageComponent implements OnInit {
         pokemon.details = details;
         // when last pokemon details have been loaded
         // send pokemons to header component
-        if (pokemon.id === '151') {
+        if (pokemon.id === '20') {
           this.pokemonsLoaded = true;
           this.exportPokemons.emit(this.pokemons.results);
         }

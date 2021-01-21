@@ -5,6 +5,8 @@
   position: -webkit-sticky; /* For macOS/iOS Safari */
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  font-size: 16px;
+  display: flex;
 
   .pokemon-logo {
     margin-left: 50px;
@@ -21,12 +23,13 @@
 
   .search-box {
     margin-right: 10px;
+    flex: 1;
     .search-input {
       font-size: 16px;
       font-weight: bold;
       margin-left: 50px;
       padding: 2px 5px 2px 20px;
-      width: 270px;
+      width: 200px;
       border-radius: 50px;
       border: none;
       outline: none !important;
@@ -49,19 +52,29 @@
 
 
   .filter-component {
-    margin-left: 80px;
+    flex: 1;
+    margin-left: 24px;
     .filter {
       margin-right: 10px;
     }
     
     .form-field {
-      width: auto;
+      max-width: 160px;
       margin-top: 8px;
     }
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1144px) {
+  .mat-toolbar {
+  
+    .pokemon-logo {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 848px) {
 .mat-toolbar {
   display: table;
   padding: 20px;

@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  font-family: 'Lato', sans-serif !important;
+}
 
 body {
   margin: 0;
-  background: #fff url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png)
+  background: #fff url(https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png);
 }
 
 @-webkit-keyframes pulse {
