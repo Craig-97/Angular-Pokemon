@@ -10,7 +10,7 @@
       class="search-input"
       type="text"
       [(ngModel)]="search"
-      (ngModelChange)="searchEvent()"
+      (ngModelChange)="searchEvent(search)"
       placeholder="Enter Pokemon name or id..."
     />
     <button

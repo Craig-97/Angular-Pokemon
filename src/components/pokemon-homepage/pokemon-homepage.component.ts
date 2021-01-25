@@ -57,7 +57,7 @@ export class PokemonHomepageComponent implements OnInit {
           ];
 
           this.getPokemonDetails(pokemon);
-          this.getPokemonSpeciesDetails(pokemon);
+          //this.getPokemonSpeciesDetails(pokemon);
         });
       }
     });

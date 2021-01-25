@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  pokemonURL: 'https://pokeapi.co/api/v2/pokemon',
-  pokemonSpeciesURL: 'https://pokeapi.co/api/v2/pokemon-species'
+  pokemonURL: 'https://pokeapi-spring-test.herokuapp.com/pokemon',
+  pokemonSpeciesURL: 'https://pokeapi-spring-test.herokuapp.com/pokemon-species'
 };
 
 /*
