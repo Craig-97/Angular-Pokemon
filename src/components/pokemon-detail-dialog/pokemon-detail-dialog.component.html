@@ -1,0 +1,59 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon class="close-icon" color="warn">X</mat-icon>
+</button>
+
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content>
+  <mat-card class="pokemon-card details" *ngIf="pokemon.details">
+    <mat-card-title>{{ pokemon.name | titlecase }}</mat-card-title>
+    <div class="id">{{ pokemon.id }}</div>
+    <div class="background-image">
+      <img
+        mat-card-image
+        src="{{ pokemon.details.sprites.front_default }}"
+        alt="photo of {{ pokemon.name }}"
+      />
+    </div>
+    <mat-card-content>
+      <div class="content-card">
+        <div class="section-title">
+          <span>Type: </span>
+        </div>
+        <div
+          *ngFor="let type of pokemon.details.types"
+          class="types"
+          [style.background]="_getTypeColour(type.type.name)">
+          {{ type.type.name | titlecase }}
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      <div class="content-card">
+        <div class="section-title">
+          <span>Weight: </span> <span class="weight">{{ pokemon.details.weight }} Kg.</span>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      <div class="content-card">
+        <div class="section-title">
+          <span>Abilities: </span>
+        </div>
+        <ul class="abilities-list">
+          <li *ngFor="let ability of pokemon.details.abilities">{{ ability.ability.name | titlecase }}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      <div class="content-card">
+        <div class="section-title">
+          <span>Evolutions: </span>
+        </div>
+        <ul class="evolution-list">
+          <li *ngFor="let evolution of pokemon.evolution">{{ evolution.species_name | titlecase }}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>

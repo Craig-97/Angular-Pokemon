@@ -3,6 +3,7 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+
 * {
   font-family: 'Lato', sans-serif !important;
 }
@@ -38,5 +39,61 @@ body {
   100% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.05, 1.05, 1.05);
+  }
+}
+
+.pokemon-card {
+  min-width: 180px;
+  max-width: 400px;
+  min-height: 400px;
+  color: white;
+  background-color: rgb(35, 35, 35);
+  display: inline-block;
+
+  &:hover:not(.details) {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    .mat-card-image {
+      transform: scale(1.1);
+    }
+  }
+
+  .mat-card-title {
+    font-size: 22px;
+    display: inline-flex;
+  }
+
+  .background-image {
+    background-color: #616161;
+    border-radius: 10px;
+
+    .mat-card-image {
+      margin-bottom: 0px;
+    }
+  }
+
+  .id {
+    font-size: 22px;
+    margin-left: 20px;
+    text-align: right;
+    display: inline-flex;
+  }
+
+  .mat-card-content {
+    margin: 0;
+
+    .types {
+      display: inline-flex;
+      margin: 15px 10px 5px 0px;
+      padding: 5px 10px;
+      text-shadow: black 1px 1px 1px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
   }
 }

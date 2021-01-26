@@ -25,12 +25,21 @@ export interface Results {
   id?: string;
   details?: PokemonDetails;
   description?: string;
+  evolution?: PokemonEvolution[];
 }
 
 export interface PokeAPI {
   count: number;
   next: string;
+  previous?: string;
   results: Results[];
+}
+
+export interface PokemonEvolution {
+  species_name: string;
+  min_level: number;
+  trigger_name?: String;
+  item?: any;
 }
 
 export interface PokemonDetails {

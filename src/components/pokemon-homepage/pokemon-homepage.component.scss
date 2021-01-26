@@ -3,66 +3,10 @@
   display: grid;
   max-width: 100%;
   grid-gap: 60px;
-  margin: 0 auto;
+  margin: 0 auto 100px auto;
   width: 95%;
-  grid-auto-rows: 400px;
+  grid-auto-rows: 480px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
-  .pokemon-card {
-    min-width: 180px;
-    max-width: 400px;
-    min-height: 400px;
-    color: white;
-    background-color: rgb(35, 35, 35);
-    display: inline-block;
-
-    &:hover {
-      -webkit-animation-name: pulse;
-      animation-name: pulse;
-      -webkit-animation-duration: 0.3s;
-      animation-duration: 0.3s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-
-      .mat-card-image {
-        transform: scale(1.1);
-      }
-    }
-
-    .mat-card-title {
-      font-size: 22px;
-      display: inline-flex;
-    }
-
-    .background-image {
-      background-color: #616161;
-      border-radius: 10px;
-
-      .mat-card-image {
-        margin-bottom: 0px;
-      }
-    }
-
-    .id {
-      font-size: 22px;
-      margin-left: 20px;
-      text-align: right;
-      display: inline-flex;
-    }
-
-    .mat-card-content {
-      margin: 0;
-
-      .types {
-        display: inline-flex;
-        margin: 15px 10px 5px 0px;
-        padding: 5px 10px;
-        text-shadow: black 1px 1px 1px;
-        border-radius: 10px;
-        font-size: 15px;
-      }
-    }
-  }
 }
 
 .content-card {
@@ -71,7 +15,26 @@
   .section-title {
     margin-top: 16px;
     font-weight: bold;
+    .weight{
+      font-weight: normal;
+    }
   }
+}
+
+.paginator {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.button-pokemon {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.375rem;
+  background-color: var(--ui-lightest-gray);
+  align-items: stretch;
+  border: 1px solid transparent;
+  cursor: pointer;  
 }
 
 .loading {

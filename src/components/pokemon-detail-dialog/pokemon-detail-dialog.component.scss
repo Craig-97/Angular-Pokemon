@@ -1,0 +1,41 @@
+::ng-deep .mat-dialog-container {
+  background-color: #232323;
+  color: white;
+  @media only screen and (max-width: 848px) {
+    height: 100vh;
+    width: 100vw !important;
+    max-width: none !important;
+  }
+  .mat-dialog-content {
+    max-height: 72vh;
+  }
+}
+
+.content-card {
+  display: block;
+  text-align: left;
+  .section-title {
+    margin-top: 16px;
+    font-weight: bold;
+    .weight{
+      font-weight: normal;
+    }
+  }
+}
+
+.close-button{
+  float: right;
+  top:-24px;
+  right:-24px;
+}
+
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-52px;
+  right:-52px;
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+ overflow: unset
+}
+

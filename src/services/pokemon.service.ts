@@ -11,18 +11,20 @@ import { PokeAPI, PokemonDetails } from 'src/interfaces';
 export class PokemonService {
   pokeAPI: any;
   pokeSpeciesAPI: any;
+  pokemonEvolutionsAPI: any;
 
   constructor(private http: HttpClient) {
     this.pokeAPI = environment.pokemonURL;
     this.pokeSpeciesAPI = environment.pokemonSpeciesURL;
+    this.pokemonEvolutionsAPI = environment.pokemonEvolutions;
   }
 
   /**
    * Returns original 151 pokemon
    */
-  getPokemon(): Observable<PokeAPI> {
+  getPokemon(limit: number = 20, offset: number = 0): Observable<PokeAPI> {
     return this.http
-      .get<PokeAPI>(`${this.pokeAPI}`)
+      .get<PokeAPI>(`${this.pokeAPI}?limit=${limit}&offset=${offset}`)
       .pipe(catchError(this._handleError));
   }
 
@@ -36,11 +38,20 @@ export class PokemonService {
   }
 
   /**
-   * Uses pokemon name to retrieve individual pokemon species details
+   * Uses pokemon name or id to retrieve individual pokemon species details
    */
   getPokemonSpecies(name): Observable<any> {
     return this.http
       .get<any>(`${this.pokeSpeciesAPI}/${name}`)
+      .pipe(catchError(this._handleError));
+  }
+
+  /**
+   * Retrieve Pokemon Evolutions
+   */
+  getPokemonEvolutions(id) {
+    return this.http
+      .get<any>(`${this.pokemonEvolutionsAPI}/${id}`)
       .pipe(catchError(this._handleError));
   }
 

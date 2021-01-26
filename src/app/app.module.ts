@@ -11,6 +11,8 @@ import { AbilitiesFilterPipe } from './../pipes/abilitiesFilter.pipe';
 import { SearchPipe } from './../pipes/search.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {MatDialogModule} from "@angular/material";
+import { PokemonDetailDialogComponent } from 'src/components/pokemon-detail-dialog/pokemon-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { AppComponent } from './app.component';
     PokemonHeaderComponent,
     SearchPipe,
     TypeFilterPipe,
-    AbilitiesFilterPipe
+    AbilitiesFilterPipe,
+    PokemonDetailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +30,11 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PokemonDetailDialogComponent]
 })
 export class AppModule {}
