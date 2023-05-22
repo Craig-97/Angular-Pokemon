@@ -1,8 +1,12 @@
 # AngularPokemon
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+The app allows uses Angular 8 to view original 151 Pokemon with search and filtering using the PokeAPI.
+
+### Homepage
 
 ![AngularPokemon-Preview](https://i.imgur.com/NvNz2Uv.png)
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
 ## Development server
 
