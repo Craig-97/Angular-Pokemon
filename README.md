@@ -1,6 +1,6 @@
 # AngularPokemon
 
-The app allows uses Angular 8 to view original 151 Pokemon with search and filtering using the PokeAPI.
+The app uses Angular 8 to view original 151 Pokemon with search and filtering using the PokeAPI.
 
 ### Homepage
 
